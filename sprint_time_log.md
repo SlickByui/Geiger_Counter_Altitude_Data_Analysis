@@ -29,11 +29,15 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   1/20   |  10:00   |   IM   |  Acquired data, started on python code     |     248     |
 |   1/20   |  16:07   |   TP   |  Reasearch into game frameworks/ networks  |     ~60     |
 |   1/21   |  20:15   |   IM   |  Research into csv in python               |      40     |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
+|   1/21   |  10:00   |   TP   |  Research into Godot                       |      45     |
+|   1/21   |  12:45   |  MTG   |  In class meeting, discussed next steps    |     120     |
+|   1/22   |  17:00   |   IM   |  Wrote general code for data reading       |     115     |
+|   1/23   |  12:45   |  MTG   |  In class meeting, discussed next steps    |     120     |
+|   1/23   |  15:35   |   TP   |  Research into websockets                  |     155     |
 |   1/24   |  17:18   |   IM   |  Fixed Github, added sorting algorithm to  |     186     |
 |          |          |        |  code, debugging, and cleanup              |             |
-|   1/25   |  11:30   |   IM   |                                            |             |
+|   1/25   |  11:30   |   IM   |  Finished draft of code                    |      66     |
+|   1/25   |  15:00   |   TP   |                                            |      60     |
 
 _Note: Add more rows as needed._
 
@@ -41,7 +45,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       |Total Time (Hours:Minutes)|
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
-|TP - Team Project              |                          |
-|MTG - Class Meetings           |                          |
-|**TOTAL**                      |                          |
+|IM - Individual Module         |          10:15           |
+|TP - Team Project              |          04:35           |
+|MTG - Class Meetings           |          04:00           |
+|**TOTAL**                      |          18:50           |
