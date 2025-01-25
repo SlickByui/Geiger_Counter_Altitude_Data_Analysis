@@ -417,11 +417,11 @@ def plot_data(geiger_data,alt_data):
 
 def main():
     #Create compound list of the geiger counter values at specific times
-    compound_geiger_list = read_alt_geiger_data("geiger_altitude_data_copy.csv")
+    compound_geiger_list = read_alt_geiger_data("geiger_altitude_data.csv")
     mod_geiger_list = parse_geiger_data(compound_geiger_list)
 
     #Create compound list of altitude at given times
-    compound_alt_list = read_altitude_data("GPSLOG00 copy.txt")
+    compound_alt_list = read_altitude_data("GPSLOG00.txt")
     mod_alt_list = parse_altitude_list(compound_alt_list)
 
     #Match data to each other
@@ -430,7 +430,7 @@ def main():
     #Plot our data
     plot_data(data_set[0],data_set[1])
 
-    #Save our data to a csv file
+    #Save our data to a csv file (do not include type, default CSV file)
     save_data("output",data_set)
 
     #Find the maximum height and CPM
