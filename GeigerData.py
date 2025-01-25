@@ -311,6 +311,31 @@ def print_max_altitude_CPM(data_set):
 
     return
 
+def print_min_altitude_CPM(data_set):
+    """ Parses through the data set to find the minimum altitude, then
+    matches that value with its accompanying value in the list.
+
+    Params: data_set (list)
+
+    Returns: n/A
+    """
+    data = {
+        "CPM" : data_set[0],
+        "Altitude" : data_set[1]
+    }
+
+    df = pd.DataFrame(data)
+
+    #Sort our data by altitude
+    sorted_df = df.sort_values(by="Altitude", ascending = True)
+    print("======================================")
+    print("Min Altitude CPM")
+    print("======================================")
+    print(sorted_df.iloc[1])
+    print()
+
+    return
+
 def print_max_CMP_alt(data_set):
     """ Parses through the data set to find the maximum CPM, then
     matches that value with its accompanying value in the list.
@@ -336,6 +361,31 @@ def print_max_CMP_alt(data_set):
 
     return
 
+def print_min_CMP_alt(data_set):
+    """ Parses through the data set to find the minimum CPM, then
+    matches that value with its accompanying value in the list.
+
+    Params: data_set (list)
+
+    Returns: n/A
+    """
+    data = {
+        "CPM" : data_set[0],
+        "Altitude" : data_set[1]
+    }
+
+    df = pd.DataFrame(data)
+
+    #Sort our data by altitude
+    sorted_df = df.sort_values(by="CPM", ascending = True)
+    print("======================================")
+    print("Min CPM Altitude")
+    print("======================================")
+    print(sorted_df.iloc[1])
+    print()
+
+    return
+
 def save_data(file_name, data_set):
     """ Saves data to a csv file 
     Params: file_name (string)
@@ -352,8 +402,8 @@ def save_data(file_name, data_set):
         #Write CPM w/ adjacent altitude
         for index, data in enumerate(data_set[0]):
             writer.writerow([data_set[0][index],data_set[1][index]])
-    
 
+    return
 
 def plot_data(geiger_data,alt_data):
     plt.plot(alt_data,geiger_data,'.')
@@ -362,6 +412,8 @@ def plot_data(geiger_data,alt_data):
     plt.xlabel("Altitude (m) above sea level")
     plt.plot()
     plt.show()
+
+    return
 
 def main():
     #Create compound list of the geiger counter values at specific times
@@ -379,19 +431,19 @@ def main():
     plot_data(data_set[0],data_set[1])
 
     #Save our data to a csv file
-    #save_data("output2",data_set)
+    save_data("output",data_set)
 
     #Find the maximum height and CPM
     print_max_altitude_CPM(data_set)
 
+    #Find the minimum height and CPM
+    print_min_altitude_CPM(data_set)
+
     #Find max CPM altitude
     print_max_CMP_alt(data_set)
-    
-    #Debug info
-    #print("Length of geiger_data: ",len(geiger_data))
-    #print("Length of alt data: ",len(alt_data))
-    #print("data_set[0] type: ", type(data_set[0]))
-    #print("data_set[0][0] = ", data_set[0][0])
+
+    #Find max CPM altitude
+    print_min_CMP_alt(data_set)
 
     return
 
