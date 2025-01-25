@@ -31,7 +31,8 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   1/21   |  20:15   |   IM   |  Research into csv in python               |      40     |
 |          |          |        |                                            |             |
 |          |          |        |                                            |             |
-|   1/24   |  17:18   |   IM   |                                            |             |
+|   1/24   |  17:18   |   IM   |  Fixed Github, added sorting algorithm to  |     186     |
+|          |          |        |  code, debugging, and cleanup              |             |
 
 _Note: Add more rows as needed._
 

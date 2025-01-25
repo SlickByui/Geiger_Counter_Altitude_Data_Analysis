@@ -1,27 +1,6 @@
-#To Do
-# - Write two questions we wanted to answer
-#   - Does CPM increase or deacrease with height?
-#   - Where is our highest CPM altitude?
-#   - What is our lowest CPM altitude?
-# - Get code on Github
-# - Maybe use a class?
-# - Cleanup code
-# - Better file names
-
-#Requirements
-# 1. Find or create a dataset that interests you                      [x]
-# 2. Use software to analyze and answer two questions about the data  [x]
-# 3. Include a filter                                                 [x]
-# 4. Include a sort                                                   []
-# 5. Include an aggregation                                           []
-#
-# Stretch
-# - Draw a graph showing some of the results                          []
-# - Id a third question and write code to answer it                   []
-
-
 #Import libraries
 import csv
+import pandas as pd
 from matplotlib import pyplot as plt
 
 #Read in data from geiger counter
@@ -307,21 +286,72 @@ def match_data_times(geiger_list,alt_list):
 
     return data_set
 
-def max_altitude(mod_alt_list):
-    #Depracated function
-    altitude = []
-    for stuff in mod_alt_list:
-        altitude.append(stuff[1])
+def print_max_altitude_CPM(data_set):
+    """ Parses through the data set to find the maximum altitude, then
+    matches that value with its accompanying value in the list.
 
-    print("Max height: ",max(altitude))
+    Params: data_set (list)
 
-def save_data(file_name):
+    Returns: n/A
+    """
+    data = {
+        "CPM" : data_set[0],
+        "Altitude" : data_set[1]
+    }
+
+    df = pd.DataFrame(data)
+
+    #Sort our data by altitude
+    sorted_df = df.sort_values(by="Altitude", ascending = False)
+    print("======================================")
+    print("Max Altitude CPM")
+    print("======================================")
+    print(sorted_df.iloc[1])
+    print()
+
+    return
+
+def print_max_CMP_alt(data_set):
+    """ Parses through the data set to find the maximum CPM, then
+    matches that value with its accompanying value in the list.
+
+    Params: data_set (list)
+
+    Returns: n/A
+    """
+    data = {
+        "CPM" : data_set[0],
+        "Altitude" : data_set[1]
+    }
+
+    df = pd.DataFrame(data)
+
+    #Sort our data by altitude
+    sorted_df = df.sort_values(by="CPM", ascending = False)
+    print("======================================")
+    print("Max CPM Altitude")
+    print("======================================")
+    print(sorted_df.iloc[1])
+    print()
+
+    return
+
+def save_data(file_name, data_set):
     """ Saves data to a csv file 
     Params: file_name (string)
             data_set  (list or array)
     
     Return: none
     """
+    with open(file_name + ".csv", "w", newline = "") as file:
+        writer = csv.writer(file)
+
+        #Write the header
+        writer.writerow(["CPM","Altitude(m)"])
+
+        #Write CPM w/ adjacent altitude
+        for index, data in enumerate(data_set[0]):
+            writer.writerow([data_set[0][index],data_set[1][index]])
     
 
 
@@ -347,10 +377,21 @@ def main():
 
     #Plot our data
     plot_data(data_set[0],data_set[1])
+
+    #Save our data to a csv file
+    #save_data("output2",data_set)
+
+    #Find the maximum height and CPM
+    print_max_altitude_CPM(data_set)
+
+    #Find max CPM altitude
+    print_max_CMP_alt(data_set)
     
     #Debug info
     #print("Length of geiger_data: ",len(geiger_data))
     #print("Length of alt data: ",len(alt_data))
+    #print("data_set[0] type: ", type(data_set[0]))
+    #print("data_set[0][0] = ", data_set[0][0])
 
     return
 
